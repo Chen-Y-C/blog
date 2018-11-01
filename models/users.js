@@ -59,8 +59,6 @@ exports.update = function (name, showname, oldpassword, newpassword, callback) {
         }
       });
 
-<<<<<<< HEAD:models/users.js
-=======
       mongopost.getposts(name, function (err, posts) {
         let postModel = mongoose.mongoose.model("Posts", PostSchema);
         postModel.find({ "author": name }, function (error, data) {
@@ -73,7 +71,6 @@ exports.update = function (name, showname, oldpassword, newpassword, callback) {
         });
       });
 
->>>>>>> 0cdd7f3a25937eac01d6a23aeaf4d5c89163c73a:blog/models/users.js
       return callback(null, 1);  //原密码输入正确 信息更新完成 返回1
     } else
       return callback(null, 0);  //原密码输入错误 返回0

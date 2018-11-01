@@ -47,10 +47,6 @@ exports.create = function (title, content, author, showname, nme, nup, callback)
 exports.getposts = function (name, callback) {
   Model.find({ "author": name }, function (error, data) {
     if (data) {                     //数据存在，返回未排序的数据
-<<<<<<< HEAD:models/posts.js
-      
-=======
->>>>>>> 0cdd7f3a25937eac01d6a23aeaf4d5c89163c73a:blog/models/posts.js
       return callback(null, data)
     }
     else {
