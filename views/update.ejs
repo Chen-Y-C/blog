@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title><%= showname %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+	<h1>修改个人信息</h1>
+	<h3>
+		<font color='red'>
+			<%= tishi %>
+		</font>
+	</h3>
+	<form action="/update" id="myform" name="myform" method="post">
+
+		<label for="showname">昵称:</label><br />
+		<input type="text" id="showname" name="showname" onblur="validate()" required="required" value="<%= showname %>"><br />
+
+		<label for="oldpassword">原密码:</label><br />
+		<input type="password" id="oldpassword" name="oldpassword" onblur="validate()" required="required"><br />
+
+		<label for="password">新密码:</label><br />
+		<input type="password" id="newpassword" name="newpassword" onblur="validate()" required="required"><br />
+
+		<label for="password">重复密码:</label><br />
+		<input type="password" id="repassword" name="repassword" onkeyup="validate()" required="required"><br />
+
+		<button type="button" id="submitbutton" onclick="submitfrom()">修改</button>
+		<a href="/"><button type="button">返回</button></a>
+
+	</form>
+	<p id='tishi'></p>
+	<p id='tishi2'></p>
+</body>
+<script>
+	var reg = /^[0-9a-zA-Z]+$/;  //校验密码
+	var reg2 = /^(?!_)(?!.*?_$)[a-zA-Z0-9_\u4e00-\u9fa5]+$/; //校验昵称，中文英文数字_且不能已_开头结尾
+
+	function validate() {		 //验证昵称密码格式，并验证两次输入密码是否一致
+		var name = document.getElementById("showname").value;
+		var pwd1 = document.getElementById("newpassword").value;
+		var pwd2 = document.getElementById("repassword").value;
+		if (reg2.test(name) && reg.test(pwd1) && pwd1.length >= 6) {
+			document.getElementById("tishi").innerHTML = "<font color='green'>昵称、密码格式正确</font>";
+			if (pwd1 === pwd2) {
+				document.getElementById("tishi2").innerHTML = "<font color='green'>两次密码相同</font>";
+				return 1;
+			}
+			else {
+				document.getElementById("tishi2").innerHTML = "<font color='red'>两次密码不相同</font>";
+			}
+		}
+		else {
+			document.getElementById("tishi").innerHTML = "<font color='red'>昵称、密码格式错误</font>";
+		}
+	}
+
+	function submitfrom() {
+		var form = document.getElementById('myform');
+		if (validate()) {
+			form.submit();
+		}
+	}
+</script>
+
+</html>

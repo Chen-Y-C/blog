@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>用户页</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div>
+        <h2><a href="/">返回主页</a></h2>
+        <a href="/update">修改用户信息</a><br />
+        <a href="/createpost">发表文章</a>
+        <a href="/signout">登出</a><br />
+    </div><br />
+    
+    <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
+    <div>
+        <h3><%= posts[i].title %></h3>
+        <p><%- posts[i].content.replace(/\n/g, '<br/>') %></p>
+        <p><%= posts[i].updatetime %></p>
+        <p><a href="/">留言</a>(<%= posts[i].nme %>) <a href="/up">点赞</a>(<%= posts[i].nup %>)</p>
+    </div>
+    <br />
+    <% } %>
+</body>
+
+</html>
