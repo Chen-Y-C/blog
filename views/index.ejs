@@ -8,7 +8,7 @@
 
 <body>
   <% if (user) { %>
-  <div>
+  <div style="border:1px;box-shadow:0 0 5px #fefefe;">
     <h2> <a class="item" href="/users">个人主页</a> </h2>
     <a class="item" href="/createpost">发表文章</a>
     <a class="item" href="/signout">登出</a>
@@ -16,7 +16,7 @@
   
 
   <% } else { %>
-  <div>
+  <div style="border:1px;box-shadow:0 0 5px #fefefe;">
     <h2>请先登录</h2>
     <a class="item" href="/signin">登录</a>
     <a class="item" href="/signup">注册</a>
@@ -29,9 +29,9 @@
     <div>
       <h3><%= posts[i].title %></h3>
       <h4>by:<%= posts[i].showname %></h4>
-      <p><%- posts[i].content.replace(/\n/g, '<br/>') %></p>
-      <p><%= posts[i].updatetime %></p>
-      <p><a href="/">留言</a>(<%= posts[i].nme %>) <a href="/up">点赞</a>(<%= posts[i].nup %>)</p>
+      <p style="width:280px;word-break:break-all; word-wrap:break-word;"><%- posts[i].content.replace(/\n/g, '<br/>') %></p>
+      <p><font color=#888888><%= posts[i].updatetime %></font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <a href="/me"><font color=#888888>留言(<%= posts[i].nme %>)</font></a>&nbsp&nbsp&nbsp&nbsp<a href="/up"><font color=#888888>点赞(<%= posts[i].nup %>)</font></a></p>
     </div>
     <br />
   <% } %>

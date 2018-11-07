@@ -1,14 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 div {
-  padding:0px 10px; 
-  border-radius:3px;
-  width:100px;
+  border:1px solid #cec9c97a;
+  border-radius:5px 5px;
+  box-shadow:0 0 5px #eeeeee;
+  padding: 0px 10px;
+  width: 280px;
 }
 
 a {
   color: #00B7FF;
+  text-decoration:none;  
 }
