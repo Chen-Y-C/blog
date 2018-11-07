@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongopost = require('../models/posts');
+var mongopost = require('../../models/posts');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {

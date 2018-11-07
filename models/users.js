@@ -1,22 +1,12 @@
 var mongoose = require('../lib/mongo');
-var mongopost = require('../models/posts');
-var Schema = mongoose.mongoose.Schema;
-
-let UserSchema = new Schema({
-  name: String,
-  password: String,
-  showname: String,
-});
-
-let Model = mongoose.mongoose.model("UserNamePassword", UserSchema);
 
 exports.create = function (name, password, callback) {
-  Model.find({ "name": name }, function (error, data) {
+  mongoose.UserModel.find({ "name": name }, function (error, data) {
     if (data.length) {
       return callback(null, 0);
     }
     else {
-      let newuser = new Model({
+      let newuser = new mongoose.UserModel({
         name: name,
         password: password,
         showname: name,
@@ -32,7 +22,7 @@ exports.create = function (name, password, callback) {
 }
 
 exports.login = function (name, password, req, callback) {
-  Model.findOne({ "name": name }, function (error, data) {
+  mongoose.UserModel.findOne({ "name": name }, function (error, data) {
     if (data) {                    //用户存在
       if (data.password === password) {
         req.session.showname = data.showname;
@@ -49,7 +39,7 @@ exports.login = function (name, password, req, callback) {
 }
 
 exports.update = function (name, showname, oldpassword, newpassword, callback) {
-  Model.findOne({ "name": name }, function (error, data) {
+  mongoose.UserModel.findOne({ "name": name }, function (error, data) {
     if (data.password === oldpassword) {
       data.showname = showname;
       data.password = newpassword;
@@ -66,7 +56,7 @@ exports.update = function (name, showname, oldpassword, newpassword, callback) {
 }
 
 exports.getshowname = function (name, callback) {
-  Model.findOne({ "name": name }, function (error, data) {
+  mongoose.UserModel.findOne({ "name": name }, function (error, data) {
     if (data)
       return callback(null, data.showname);  //找到用户   返回1
     else
