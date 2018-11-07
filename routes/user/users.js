@@ -10,7 +10,6 @@ router.get('/', function (req, res, next) {
       var value1 = a[according];
       var value2 = b[according];
       return value1 - value2;
-
     }
   }
 
