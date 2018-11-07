@@ -13,6 +13,16 @@
     <a class="item" href="/createpost">发表文章</a>
     <a class="item" href="/signout">登出</a>
   </div>
+  
+
+  <% } else { %>
+  <div>
+    <h2>请先登录</h2>
+    <a class="item" href="/signin">登录</a>
+    <a class="item" href="/signup">注册</a>
+  </div>
+  <% } %>
+
   <br /><br />
 
   <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
@@ -24,14 +34,6 @@
       <p><a href="/">留言</a>(<%= posts[i].nme %>) <a href="/up">点赞</a>(<%= posts[i].nup %>)</p>
     </div>
     <br />
-  <% } %>
-
-  <% } else { %>
-  <div>
-    <h2>请先登录</h2>
-    <a class="item" href="/signin">登录</a>
-    <a class="item" href="/signup">注册</a>
-  </div>
   <% } %>
 
 </body>

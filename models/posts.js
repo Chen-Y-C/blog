@@ -30,9 +30,18 @@ exports.create = function (title, content, author, showname, nme, nup, callback)
 }
 
 exports.getposts = function (name, callback) {
+
+  function compare(according) {
+    return function (a, b) {
+      var value1 = a[according];
+      var value2 = b[according];
+      return value1 - value2;
+    }
+  }
+
   mongoose.PostModel.find({ "author": name }, function (error, data) {
     if (data) {                     //数据存在，返回未排序的数据
-      return callback(null, data)
+      return callback(null, data.sort(compare('updatetime')))
     }
     else {
       return callback(null, 0);    //用户不存在，返回0
