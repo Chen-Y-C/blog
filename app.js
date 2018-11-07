@@ -4,17 +4,16 @@ var path = require('path');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('./lib/mongo');
 
 //设置路由路径
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var signinRouter = require('./routes/signin');
-var signoutRouter = require('./routes/signout');
-var signupRouter = require('./routes/signup');
-var updateRouter = require('./routes/update');
-var createpostRouter = require('./routes/createpost');
-var upRouter = require('./routes/up');
+var usersRouter = require('./routes/user/users');
+var signinRouter = require('./routes/user/signin');
+var signoutRouter = require('./routes/user/signout');
+var signupRouter = require('./routes/user/signup');
+var updateRouter = require('./routes/user/update');
+var createpostRouter = require('./routes/post/createpost');
+var upRouter = require('./routes/post/up');
 
 var app = express();
 
