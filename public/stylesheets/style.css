@@ -4,14 +4,23 @@ body {
 }
 
 div {
-  border:1px solid #cec9c97a;
-  border-radius:5px 5px;
-  box-shadow:0 0 5px #eeeeee;
+  border: 1px solid #cec9c97a;
+  border-radius: 5px 5px;
+  box-shadow: 0 0 5px #eeeeee;
   padding: 0px 10px;
   width: 280px;
+  margin: 0 auto;
 }
 
 a {
-  color: #00B7FF;
-  text-decoration:none;  
+  color: rgba(65, 170, 5, 0.829);
+  text-decoration: none;
+}
+
+input{
+
+  width: 260px;  /*必须设置宽度*/
+  overflow: hidden;  /*溢出隐藏*/
+  text-overflow: ellipsis; /*以省略号...显示*/
+  white-space: nowrap;  /*强制不换行*/
 }
