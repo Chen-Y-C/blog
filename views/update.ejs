@@ -19,17 +19,17 @@
 		</h3>
 		<form action="/update" id="myform" name="myform" method="post">
 
-			<label for="showname">昵称:</label><br />
+			<label for="showname">昵称<font color='red'>*</font></label><br />
 			<input type="text" id="showname" name="showname" onblur="validate()" required="required" value="<%= showname %>"><br />
 
-			<label for="oldpassword">原密码:</label><br />
+			<label for="oldpassword">原密码<font color='red'>*</font></label><br />
 			<input type="password" id="oldpassword" name="oldpassword" onblur="validate()" required="required"><br />
 
-			<label for="password">新密码:</label><br />
+			<label for="password">新密码<font color='red'>*</font></label><br />
 			<input type="password" id="newpassword" name="newpassword" onblur="validate()" required="required"><br />
 
-			<label for="password">重复密码:</label><br />
-			<input type="password" id="repassword" name="repassword" onkeyup="validate()" required="required"><br />
+			<label for="password">重复密码<font color='red'>*</font></label><br />
+			<input type="password" id="repassword" name="repassword" onkeyup="validate()" required="required"><br /><br />
 
 			<button type="button" id="submitbutton" onclick="submitfrom()">修改</button>
 			<a href="/"><button type="button">返回</button></a>
@@ -37,7 +37,6 @@
 		</form>
 		<p id='tishi'></p>
 		<p id='tishi2'></p>
-		<br />
 	</div>
 </body>
 <script>

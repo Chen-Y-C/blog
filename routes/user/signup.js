@@ -8,10 +8,11 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
     const name = req.body.username;
+    const showname = req.body.showname;
     const password = req.body.password;
     req.session.name = name;
-    req.session.showname = name;
-    mongouser.create(name, password, function(err, user){
+    req.session.showname = showname;
+    mongouser.create(name,showname, password, function(err, user){
         if (user) {
             res.redirect('/');
         }

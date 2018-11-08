@@ -1,7 +1,7 @@
 var mongoose = require('../lib/mongo');
 var mongopost = require('../models/posts');
 
-exports.create = function (name, password, callback) {
+exports.create = function (name, showname, password, callback) {
   mongoose.UserModel.find({ "name": name }, function (error, data) {
     if (data.length) {
       return callback(null, 0);
@@ -10,7 +10,7 @@ exports.create = function (name, password, callback) {
       let newuser = new mongoose.UserModel({
         name: name,
         password: password,
-        showname: name,
+        showname: showname,
       });
       newuser.save((err, newuser) => {
         if (err) {
