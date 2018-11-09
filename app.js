@@ -18,7 +18,7 @@ var meRouter = require('./routes/post/me');
 
 var app = express();
 
-//使用ejs
+//使用ejs11
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
