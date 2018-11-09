@@ -1,0 +1,26 @@
+body {
+  padding: 50px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+div {
+  border: 1px solid #cec9c97a;
+  border-radius: 5px 5px;
+  box-shadow: 0 0 5px #eeeeee;
+  padding: 0px 10px;
+  width: 280px;
+  margin: 0 auto;
+}
+
+a {
+  color: rgb(72, 187, 5);
+  text-decoration: none;
+}
+
+input{
+
+  width: 260px;  /*必须设置宽度*/
+  overflow: hidden;  /*溢出隐藏*/
+  text-overflow: ellipsis; /*以省略号...显示*/
+  white-space: nowrap;  /*强制不换行*/
+}
