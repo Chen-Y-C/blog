@@ -8,21 +8,14 @@
 
 <body>
     <div>
-        <h2><a href="/">返回主页</a></h2>
-        <a href="/update">修改用户信息</a><br />
-        <a href="/createpost">发表文章</a>
-        <a href="/signout">登出</a><br />
-    </div><br />
-    
-    <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
-    <div>
-        <h3><%= posts[i].title %></h3>
-        <p><%- posts[i].content.replace(/\n/g, '<br/>') %></p>
-        <p><%= posts[i].updatetime %></p>
-        <p><a href="/">留言</a>(<%= posts[i].nme %>) <a href="/up">点赞</a>(<%= posts[i].nup %>)</p>
+        <h2 style="display : inline;color: rgba(58, 151, 4, 0.897);">个人主页</h2>
+        <a style="float: right;margin-right: 0;" class="item" href="/signout">登出</a>
+        <a style="float: right;margin-right: 0;" class="item" href="/">回到首页&nbsp&nbsp</a><br />
+        <a class="item" href="/createpost">新建文章</a>
+        <a style="float: right;margin-right: 0;" class="item" href="/update">修改个人信息</a>
     </div>
     <br />
-    <% } %>
+    <%- include('components/post') %>
 </body>
 
 </html>

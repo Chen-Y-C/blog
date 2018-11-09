@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongopost = require('../models/posts');
 var mongouser = require('../models/users');
+var mongoose = require('../lib/mongo')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -9,15 +10,11 @@ router.get('/', function (req, res, next) {
   if (req.session.name) {
     user = true;
   }
-
-
-  mongopost.getposts(req.session.name, function (err, posts) {
-    for (i = posts.length - 1; i >= 0; i--) {
-      mongouser.getshowname(posts[i].author, function (err, showname) {
-      });
-    }
+  
+  mongoose.PostModel.find(function (err, posts) {
     res.render('index', { user: user, posts: posts });
-  });
+  })
+
 });
 
 module.exports = router;

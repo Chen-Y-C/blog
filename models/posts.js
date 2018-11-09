@@ -1,4 +1,5 @@
 var mongoose = require('../lib/mongo');
+var mongouser = require('../models/users');
 var moment = require('moment');
 
 function timenow() {
@@ -36,8 +37,9 @@ exports.getposts = function (name, callback) {
       return value1 - value2;
     }
   }
+
   mongoose.PostModel.find({ "author": name }, function (error, data) {
-    if (data) {                     //数据存在，返回排序后的数据
+    if (data) {                     //数据存在，返回未排序的数据
       return callback(null, data.sort(compare('updatetime')))
     }
     else {
@@ -45,4 +47,3 @@ exports.getposts = function (name, callback) {
     }
   });
 }
-

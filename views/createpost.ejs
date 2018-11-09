@@ -7,16 +7,18 @@
 </head>
 
 <body>
-    <h1>新建文章</h1>
-    <form action="/createpost" method="post">
-        <label>标题</label><br />
-        <input type="text" name="title" required="required" style="width:200px; height:20px;" ><br />
-        <label>内容</label><br />
-        <textarea name="content" rows="10" required="required"  ></textarea><br />
-        <input type="submit" value="发布">
-        <a href="/"><button type="button">返回</button></a>
-    </form>
-
+    <div>
+        <h1>新建文章</h1>
+        <form action="/createpost" method="post">
+            <label>标题<font color='red'>*</font></label><br />
+            <input type="text" name="title" required="required" style="width:260px"><br />
+            <label>内容<font color='red'>*</font></label><br />
+            <textarea name="content" rows="10" required="required" style="width:275px"></textarea><br /><br />
+            <button type="submit">发布</button>
+            <a href="/"><button type="button">返回</button></a>
+        </form>
+        <br />
+    </div>
 </body>
 
 </html>
