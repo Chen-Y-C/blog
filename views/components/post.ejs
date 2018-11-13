@@ -8,10 +8,10 @@
             <font size="2px" color=#888888>
                 <%= posts[i].updatetime %>
                 </font>
-                <a style="float: right;margin-right: 0;" href="/me">
+                <a style="float: right;margin-right: 0;" href="/me/<%= posts[i].id %>">
                     <font size="2px" color=#888888>留言(<%= posts[i].nme %>)</font>
                 </a>
-                <a style="float: right;margin-right: 0;" href="/up">
+                <a style="float: right;margin-right: 0;" href="/up/<%= posts[i].id %>">
                     <font size="2px" color=#888888>点赞(<%= posts[i].nup %>)&nbsp&nbsp&nbsp</font>
                 </a>
                 <br />
@@ -21,5 +21,4 @@
         </p>
 </div>
 <br />
-
 <% } %>

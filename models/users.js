@@ -1,5 +1,4 @@
 var mongoose = require('../lib/mongo');
-var mongopost = require('../models/posts');
 
 exports.create = function (name, showname, password, callback) {
   mongoose.UserModel.find({ "name": name }, function (error, data) {

@@ -1,5 +1,4 @@
 var mongoose = require('../lib/mongo');
-var mongouser = require('../models/users');
 var moment = require('moment');
 
 function timenow() {
