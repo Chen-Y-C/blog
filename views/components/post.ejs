@@ -1,5 +1,5 @@
 <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
-<div>
+<div class="autodiv">
     <h3 style="color: rgba(65, 170, 5, 0.829);"><%= posts[i].title %></h3>
       <p style="width:280px;word-break:break-all; word-wrap:break-word;">
         <%- posts[i].content.replace(/\n/g, '<br/>') %>
