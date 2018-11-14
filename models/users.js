@@ -19,6 +19,7 @@ exports.create = function (name, showname, password, callback) {
       });
     }
   });
+  
 }
 
 exports.login = function (name, password, req, callback) {

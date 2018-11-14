@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
 }
 
 .autodiv {
@@ -17,10 +18,43 @@ a {
   text-decoration: none;
 }
 
-input{
+input {
+  width: 260px;
+  /*必须设置宽度*/
+  overflow: hidden;
+  /*溢出隐藏*/
+  text-overflow: ellipsis;
+  /*以省略号...显示*/
+  white-space: nowrap;
+  /*强制不换行*/
+}
 
-  width: 260px;  /*必须设置宽度*/
-  overflow: hidden;  /*溢出隐藏*/
-  text-overflow: ellipsis; /*以省略号...显示*/
-  white-space: nowrap;  /*强制不换行*/
+.button {
+  background-color: #4fc08d !important;
+  color: #fff !important;
+}
+
+.avatar {
+  border-radius: 3px;
+  width: 48px;
+  height: 48px;
+  float: right;
+}
+
+/* ---------- nav-setting ---------- */
+
+.nav-setting {
+  right: 30px;
+  top: 35px;
+  z-index: 999;
+}
+
+.nav-setting .ui.dropdown.button {
+  padding: 10px 10px 0 10px;
+  background-color: #fff !important;
+}
+
+.nav-setting .icon.bars {
+  color: #000;
+  font-size: 22px;
 }
