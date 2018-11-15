@@ -44,7 +44,7 @@ input {
 /* ---------- nav-setting ---------- */
 
 .nav-setting {
-  right: 30px;
+  right: 0px;
   top: 35px;
   z-index: 999;
 }

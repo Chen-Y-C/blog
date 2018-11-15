@@ -5,7 +5,7 @@ function timenow() {
   return moment().format('YYYY-MM-DD HH:mm:ss');
 }
 
-exports.create = function (title, content, author, showname, nme, nup, callback) {
+exports.create = function (title, content, author, showname,  callback) {
   let nowtime = timenow();
 
   let newpost = new mongoose.PostModel({
@@ -16,8 +16,6 @@ exports.create = function (title, content, author, showname, nme, nup, callback)
     showname: showname,
     createtime: nowtime,
     updatetime: nowtime,
-    nme: nme,
-    nup: nup,
   });
 
   newpost.save((err, newpost) => {
