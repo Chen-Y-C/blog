@@ -12,7 +12,7 @@ router.get('/:PostId', function (req, res, next) {
             } else {
                 req.flash('error', '取消点赞');
             }
-            res.redirect('/');
+            res.redirect('back');
         })
     }
     else {

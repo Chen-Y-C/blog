@@ -25,9 +25,13 @@ router.post('/', function (req, res, next) {
             mongoose.PostModel.update({ author: name }, { showname: showname }, { multi: true }, function (err, data) {
                 if (err) return err;
             });
-            req.flash('success','修改完成')
-            res.redirect('/');      //返回1，修改成功
-        }
+
+        mongoose.PostModel.update({ "upid.name": name }, { $set: { "upid.$[].showname": showname }}, { multi: true }, function (err, data) {
+            if (err) return err;
+        })
+        req.flash('success', '修改完成')
+        res.redirect('/');      //返回1，修改成功
+    }
         else {                      //返回0，密码错误
             res.render('update', { tishi: '密码错误！', showname: req.session.showname });
         }

@@ -5,12 +5,13 @@ body {
 }
 
 .autodiv {
-  border: 1px solid #cec9c97a;
+  border: 1px solid #e6e7e77a;
   border-radius: 5px 5px;
   box-shadow: 0 0 5px #eeeeee;
   padding: 10px 10px;
   width: 280px;
   margin: 0 auto;
+  background-color: #ffffff
 }
 
 a {

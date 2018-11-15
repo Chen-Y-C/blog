@@ -32,5 +32,4 @@ exports.up = function (req, PostId, callback) {
                 return callback(null, 1);
             }
         })
-
 }

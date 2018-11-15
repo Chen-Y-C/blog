@@ -15,9 +15,8 @@ router.get('/', function (req, res, next) {
   mongoose.PostModel.find() //取出所有post
     .exec(function (err, posts) {
       if (!req.session.name)
-        req.flash('error', '请先登录'); 
+        req.flash('error', '请先登录');
       res.render('index', { user: req.session.name, posts: posts.sort(compare('updatetime')) })
     })
 })
-
 module.exports = router;
