@@ -14,6 +14,7 @@ router.post('/', function (req, res, next) {
     req.session.showname = showname;
     mongouser.create(name,showname, password, function(err, user){
         if (user) {
+            req.flash('success','注册成功')
             res.redirect('/');
         }
         else {

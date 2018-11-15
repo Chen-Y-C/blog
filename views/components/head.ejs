@@ -1,16 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>首页</title>
+  <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js"></script>
+</head>
+
+<body>
+
 <div class="autodiv">
 
-    <font size="5px" color=#888888>
+    <font size="5px" color=#666666>
         博客首页
     </font>
-    
-    <span class="nav-setting">
+
+    <span class="nav-setting" style="float: right;margin-right: 0;">
         <div class="ui buttons">
             <div class="ui floating dropdown button">
                 <i class="icon bars"></i>
                 <div class="menu">
                     <% if (user) { %>
-                    <a class="item" href="/users">个人主页</a>
+                    <a class="item" href="/update">修改信息</a>
                     <div class="divider"></div>
                     <a class="item" href="/createpost">发表文章</a>
                     <a class="item" href="/signout">登出</a>

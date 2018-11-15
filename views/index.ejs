@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>首页</title>
-  <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js"></script>
-</head>
-
-<body>
-
-  <%- include('components/head') %>
-  <%- include('components/post') %>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      // 点击按钮弹出下拉框
-      $('.ui.dropdown').dropdown();
-
-      // 鼠标悬浮在头像上，弹出气泡提示框
-      $('.post-content .avatar-link').popup({
-        inline: true,
-        position: 'bottom right',
-        lastResort: 'bottom right'
-      });
-    })
-
-  </script>
-</body>
-
-</html>
+<%- include('components/head') %>
+<%- include('components/notification') %>
+<%- include('components/post') %>
+<%- include('components/footer') %>

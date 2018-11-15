@@ -4,10 +4,10 @@ var path = require('path');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var flash = require('connect-flash');
 
 //设置路由路径
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/user/users');
 var signinRouter = require('./routes/user/signin');
 var signoutRouter = require('./routes/user/signout');
 var signupRouter = require('./routes/user/signup');
@@ -38,9 +38,15 @@ app.use(session({
     }
 }));
 
+app.use(flash());
+app.use(function (req, res, next) {
+  res.locals.user = req.session.user
+  res.locals.success = req.flash('success').toString()
+  res.locals.error = req.flash('error').toString()
+  next()
+})
 //设置路由
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
 app.use('/signout', signoutRouter);
 app.use('/signup', signupRouter);

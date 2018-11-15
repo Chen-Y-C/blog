@@ -1,0 +1,15 @@
+<div id="notification">
+  <% if (success) { %>
+  <div class="ui success message" style=" border: 1px solid #cec9c97a; border-radius: 5px 5px; box-shadow: 0 0 5px #eeeeee;width: 280px; margin: 0 auto;">
+    <%= success %>
+  </div>
+  <br>
+  <% } %>
+
+  <% if (error) { %>
+  <div class="ui error message" style="border: 1px solid #cec9c97a;  border-radius: 5px 5px;box-shadow: 0 0 5px #eeeeee;width: 280px; margin: 0 auto;">
+    <%= error %>
+  </div>
+  <br>
+  <% } %>
+</div>
