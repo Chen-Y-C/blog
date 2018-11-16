@@ -1,8 +1,10 @@
 <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
 <div class="autodiv">
     <h3 style="color: rgba(65, 170, 5, 0.829);">
-        <%= posts[i].title %>
+        <a href="/post/id/<%= posts[i].id %>">
+            <%= posts[i].title %> </a>
     </h3>
+
     <p style="width:280px;word-break:break-all; word-wrap:break-word;">
         <%- posts[i].content.replace(/\n/g, '<br/>') %>
     </p>
@@ -11,19 +13,16 @@
             <%= posts[i].updatetime %>
         </font>
         <a style="float: right;margin-right: 0;" href="/me/<%= posts[i].id %>">
-            <font size="2px" color=#888888>留言(
-                <%= posts[i].nme %>)
+            <font size="2px" color=#888888>留言(<%= posts[i].nme %>)
             </font>
         </a>
 
         <a style="float: right;margin-right: 0;" href="/up/<%= posts[i].id %>">
-            <font size="2px" color=#888888>点赞(
-                <%= posts[i].nup %>)&nbsp&nbsp</font>
+            <font size="2px" color=#888888>点赞(<%= posts[i].nup %>)&nbsp&nbsp</font>
         </a>
         <br>
         <a href="/post/<%= posts[i].author %>">
-            <font size="2px" color=#888888> by:
-                <%= posts[i].showname %>
+            <font size="2px" color=#888888>by:<%= posts[i].showname %>
             </font>
         </a>
     </p>

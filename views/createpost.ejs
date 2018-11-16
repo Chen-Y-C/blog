@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>新建文章</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include('components/head') %>
+<%- include('components/notification') %>
 
 <body>
     <div class="autodiv">
-        <h1>新建文章</h1>
-        <form action="/createpost" method="post">
+        <form action="/createpost" method="post" class="ui reply form">
             <label>标题<font color='red'>*</font></label><br />
-            <input type="text" name="title" required="required" style="width:260px"><br />
+            <input type="text" name="title" required="required"><br />
             <label>内容<font color='red'>*</font></label><br />
-            <textarea name="content" rows="10" required="required" style="width:275px"></textarea><br /><br />
-            <button type="submit">发布</button>
-            <a href="/"><button type="button">返回</button></a>
+            <div class="field">
+                <textarea name="content" rows="5" required="required"></textarea>
+            </div>
+            <button class="ui icon button" type="submit">发布</button>
         </form>
-        <br />
     </div>
 </body>
 
-</html>
+<%- include('components/footer') %>

@@ -5,15 +5,15 @@ var mongoose = require('../../lib/mongo');
 
 router.get('/', function (req, res, next) {
     if (!req.session.name) {
-        res.redirect('/');
+        res.redirect('/all');
     }
-    res.render('update', { tishi: '', showname: req.session.showname });
+    res.render('update', { user: req.session.name, showname: req.session.showname, title: '修改用户信息' });
 });
 
 router.post('/', function (req, res, next) {
     let name = req.session.name;
     if (!name) {
-        res.redirect('/');
+        res.redirect('/all');
     }
     let oldpassword = req.body.oldpassword;
     let newpassword = req.body.newpassword;
@@ -26,14 +26,15 @@ router.post('/', function (req, res, next) {
                 if (err) return err;
             });
 
-        mongoose.PostModel.update({ "upid.name": name }, { $set: { "upid.$[].showname": showname }}, { multi: true }, function (err, data) {
-            if (err) return err;
-        })
-        req.flash('success', '修改完成')
-        res.redirect('/');      //返回1，修改成功
-    }
+            mongoose.PostModel.update({ "upid.name": name }, { $set: { "upid.$[].showname": showname } }, { multi: true }, function (err, data) {
+                if (err) return err;
+            })
+            req.flash('success', '修改完成')
+            res.redirect('/all');      //返回1，修改成功
+        }
         else {                      //返回0，密码错误
-            res.render('update', { tishi: '密码错误！', showname: req.session.showname });
+            req.flash('error', '密码错误')
+            res.redirect('back')
         }
     });
 });

@@ -28,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 var RedisStore = require('connect-redis')(session);
 
 app.use(session({
@@ -39,7 +40,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   secret: 'keyboard cat',
-  cookie: { maxAge: 100000 }
+  cookie: { maxAge: 1000000 }
 }))
 
 
@@ -50,6 +51,7 @@ app.use(function (req, res, next) {
   res.locals.error = req.flash('error').toString()
   next()
 })
+
 //设置路由
 app.use('/', indexRouter);
 app.use('/signin', signinRouter);

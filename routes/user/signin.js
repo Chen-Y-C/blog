@@ -4,7 +4,7 @@ var mongouser = require('../../models/users');
 
 
 router.get('/', function (req, res, next) {
-    res.render('signin', { message: '' });
+    res.render('signin', { title: '登录' });
 });
 
 router.post('/', function (req, res, next) {
@@ -13,14 +13,16 @@ router.post('/', function (req, res, next) {
     mongouser.login(name, password, req, function (err, user) {
         switch (user) {
             case 0:     //用户不存在
-                res.render('signin', { message: "用户不存在！" });
+                req.flash('error', '用户不存在')
+                res.redirect('signin');
                 break;
             case 1:     //用户存在，密码正确
-                req.flash('success','登录成功')
-                res.redirect('/');
+                req.flash('success', '登录成功')
+                res.redirect('/all');
                 break;
             case 2:     //用户存在，密码错误
-                res.render('signin', { message: "密码错误！" });
+                req.flash('error', '密码错误')
+                res.redirect('signin');
                 break;
             default:
         }

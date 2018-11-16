@@ -10,7 +10,7 @@ router.get('/:PostId', function (req, res, next) {
             if (err) return err;
         });
     }
-    res.redirect('/');
+    res.redirect('/all');
 })
 
 module.exports = router;

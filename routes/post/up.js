@@ -17,7 +17,7 @@ router.get('/:PostId', function (req, res, next) {
     }
     else {
         req.flash('error', '请先登录');
-        res.redirect('/');
+        res.redirect('/all');
     }
 })
 
