@@ -27,8 +27,8 @@
             <span class="ui inline dropdown" style="float:right">
                 <div class="arrow_down"></div>
                 <div class="menu">
-                    <a class="item" href="/">全部文章</a>
-                    <a class="item" href="/">我的文章</a>
+                    <a class="item" href="/post/edit/<%= posts[i].id %>">编辑</a>
+                    <a class="item" href="/post/remove/<%= posts[i].id %>">删除</a>
                 </div>
             </span>
             <% } %>
