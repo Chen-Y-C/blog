@@ -22,6 +22,7 @@
     "morgan": "~1.9.0",
     "multer": "^1.4.1",
     "redis-connector": "0.0.0-deprecate",
+    "semantic-ui": "^2.4.2",
     "supervisor": "^0.12.0"
   },
   "devDependencies": {}
