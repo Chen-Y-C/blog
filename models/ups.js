@@ -1,7 +1,6 @@
 var mongoose = require('../lib/mongo');
 
 exports.up = function (req, PostId, callback) {
-
     mongoose.PostModel.findOne({ id: PostId, "upid.name": req.session.name })
         .exec(function (err, data) {
             if (data) {

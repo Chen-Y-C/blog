@@ -25,10 +25,13 @@ router.post('/', function (req, res, next) {
             mongoose.PostModel.update({ author: name }, { showname: showname }, { multi: true }, function (err, data) {
                 if (err) return err;
             });
-
-            mongoose.PostModel.update({ "upid.name": name }, { $set: { "upid.$[].showname": showname } }, { multi: true }, function (err, data) {
+            mongoose.PostModel.update({ "upid.name": name }, { $set: { "upid.$.showname": showname, } }, { multi: true }, function (err, data) {
                 if (err) return err;
             })
+            mongoose.CommentModel.update({ "name": name }, { showname: showname, }, { multi: true }, function (err, data) {
+                if (err) return err;
+            })
+
             req.flash('success', '修改完成')
             res.redirect('/all');      //返回1，修改成功
         }

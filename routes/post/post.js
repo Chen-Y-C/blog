@@ -35,16 +35,18 @@ router.get('/id/:id', function (req, res, next) {
         req.flash('error', '请先登录')
         res.redirect('/all');
     }
-
     const id = req.params.id;
 
-    mongoose.PostModel.find({ 'id': id }) //取出id的post
+    mongoose.PostModel.find({ 'id': id }) //取出此id对应的post
         .exec(function (err, posts) {
             if (!req.session.name)
                 req.flash('error', '请先登录');
             if (posts == null)
                 req.flash('error', '无文章');
-            res.render('post', { user: req.session.name, posts: posts, title: '查看文章' })
+            mongoose.CommentModel.find({ postid: id })
+                .exec(function(err,comment) {
+                    res.render('post', { user: req.session.name, posts: posts, comment: comment, title: '查看文章' })
+                })
         })
 })
 

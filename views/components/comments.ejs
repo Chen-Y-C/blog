@@ -1,10 +1,48 @@
+<% if (posts[0].nup != 0) { %>
+<div class="autodiv">
+  <% for(i = 0 ; i < posts[0].upid.length ; i++){ %>
+  <a href="/post/<%= posts[0].upid[i].name %>">
+    <font "Lucida Grande" size="2px" color=#444444>
+      <%= posts[0].upid[i].showname %>
+    </font>
+  </a>
+  <% } %>
+  <font "Lucida Grande" size="2px" color=#444444>点赞过本文章</font>
+</div>
+<br>
+<% } %>
+
 <div class="autodiv">
   <h3>留言</h3>
+  <% for(i = 0 ; i < comment.length ; i++){ %>
+  <div>
+    <a href="/post/<%= comment[i].name %>">
+      <font "Lucida Grande" size="2px" color=#444444>
+        <%= comment[i].showname %>
+      </font>
+    </a>
+    &nbsp
+    <font "Lucida Grande" size="2px" color=#888888>
+      <%= comment[i].time %>
+    </font>
+    <% if (user === comment[i].name ) { %>
+    <a style="float: right;margin-right: 0;" class="reply" href="/me/remove/<%= posts[0].id %>/<%= comment[i]._id %>">
+      <font "Lucida Grande" size="2px" color=#888888>删除</font>
+    </a>
+    <% } %>
+    <br><br>
+    <p style="width:260px;word-break:break-all; word-wrap:break-word;">
+      <font size="3px" color=#222222>
+        <%- comment[i].content.replace(/\n/g, '<br/>') %>
+      </font>
+    </p>
+  </div>
+  <br>
+  <% } %>
 
-  <form class="ui reply form" method="get" action="/">
-    <input name="postId" value="<%= posts[0].id %>" hidden>
+  <form class="ui reply form" method="post" action="/me/creat/<%= posts[0].id %>">
     <div class="field">
-      <textarea name="content" rows="2"></textarea>
+      <textarea name="ctt" rows="2" required="required"></textarea>
     </div>
     <input type="submit" class="ui icon button" style=" width: 52px;height: 36px;" value="留言" />
   </form>

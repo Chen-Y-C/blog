@@ -1,31 +1,46 @@
 <% for(i = posts.length-1 ; i >= 0 ; i--){ %>
 <div class="autodiv">
-    <h3 style="color: rgba(65, 170, 5, 0.829);">
-        <a href="/post/id/<%= posts[i].id %>">
-            <%= posts[i].title %> </a>
-    </h3>
 
-    <p style="width:280px;word-break:break-all; word-wrap:break-word;">
+    <a href="/post/id/<%= posts[i].id %>" style="width:260px;word-break:break-all; word-wrap:break-word;">
+        <font size="4px" color=#4FC08D>
+            <%= posts[i].title %>
+        </font>
+    </a>
+
+    <br><br>
+    <p style="width:260px;word-break:break-all; word-wrap:break-word;">
         <%- posts[i].content.replace(/\n/g, '<br/>') %>
     </p>
-    <p>
-        <font size="2px" color=#888888>
-            <%= posts[i].updatetime %>
-        </font>
-        <a style="float: right;margin-right: 0;" href="/me/<%= posts[i].id %>">
+    <font size="2px" color=#888888>
+        <%= posts[i].updatetime %>
+    </font>
+    <div style="float: right;margin-right: 0;">
+        <a href="/up/<%= posts[i].id %>">
+            <font size="2px" color=#888888>点赞(<%= posts[i].nup %>)</font>
+        </a>
+        <a href="/post/id/<%= posts[i].id %>">
             <font size="2px" color=#888888>留言(<%= posts[i].nme %>)
             </font>
         </a>
-
-        <a style="float: right;margin-right: 0;" href="/up/<%= posts[i].id %>">
-            <font size="2px" color=#888888>点赞(<%= posts[i].nup %>)&nbsp&nbsp</font>
+        <% if (user === posts[i].author && title === '查看文章') { %>
+        &nbsp
+            <span class="ui inline dropdown" style="float:right">
+                <div class="arrow_down"></div>
+                <div class="menu">
+                    <a class="item" href="/">全部文章</a>
+                    <a class="item" href="/">我的文章</a>
+                </div>
+            </span>
+            <% } %>
+    </div>
+    <br>
+    <div >
+        <a href="/post/<%= posts[i].author %>"><span>
+                <font size="2px" color=#888888>by:<%= posts[i].showname %>
+                </font>
+            </span>
         </a>
-        <br>
-        <a href="/post/<%= posts[i].author %>">
-            <font size="2px" color=#888888>by:<%= posts[i].showname %>
-            </font>
-        </a>
-    </p>
+    </div>
 </div>
 <br />
 <% } %>

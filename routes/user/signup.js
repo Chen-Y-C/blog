@@ -23,7 +23,6 @@ router.post('/', function (req, res, next) {
             res.redirect('signup');
         }
     });
-
 });
 
 module.exports = router;
