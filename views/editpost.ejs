@@ -3,12 +3,12 @@
 
 <body>
     <div class="autodiv">
-        <form action="/createpost" method="post" class="ui reply form">
+        <form action="/post/edit/<%= post.id %>" method="post" class="ui reply form">
             <label>标题<font color='red'>*</font></label><br />
-            <input type="text" name="title" required="required"><br />
+            <input type="text" name="title" required="required" value="<%- post.title %>"><br />
             <label>内容<font color='red'>*</font></label><br />
             <div class="field">
-                <textarea name="content" rows="5" required="required"></textarea>
+                <textarea name="content" rows="5" required="required" ><%- post.content %></textarea>
             </div>
             <button class="ui icon button" type="submit">发布</button>
         </form>

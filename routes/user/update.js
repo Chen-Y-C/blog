@@ -2,19 +2,14 @@ var express = require('express');
 var router = express.Router();
 var mongouser = require('../../models/users');
 var mongoose = require('../../lib/mongo');
+var checklogin = require('../../middlewares/checklogin').checklogin;
 
-router.get('/', function (req, res, next) {
-    if (!req.session.name) {
-        res.redirect('/all');
-    }
+router.get('/', checklogin, function (req, res, next) {
     res.render('update', { user: req.session.name, showname: req.session.showname, title: '修改用户信息' });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', checklogin, function (req, res, next) {
     let name = req.session.name;
-    if (!name) {
-        res.redirect('/all');
-    }
     let oldpassword = req.body.oldpassword;
     let newpassword = req.body.newpassword;
     let showname = req.body.showname;

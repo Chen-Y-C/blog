@@ -7,16 +7,16 @@
 		<form action="/update" id="myform" name="myform" method="post" class="ui reply form">
 
 			<label for="showname">昵称<font color='red'>*</font></label><br />
-			<input type="text" id="showname" name="showname" onblur="validate()" required="required" value="<%= showname %>"><br />
+			<input type="text" id="showname" name="showname" onblur="validate()" required="required" value="<%= showname %>" placeholder="中文英文数字_且不能已_开头结尾"><br />
 
 			<label for="oldpassword">原密码<font color='red'>*</font></label><br />
-			<input type="password" id="oldpassword" name="oldpassword" onblur="validate()" required="required"><br />
+			<input type="password" id="oldpassword" name="oldpassword" onblur="validate()" required="required" placeholder="……"><br />
 
 			<label for="password">新密码<font color='red'>*</font></label><br />
-			<input type="password" id="newpassword" name="newpassword" onblur="validate()" required="required"><br />
+			<input type="password" id="newpassword" name="newpassword" onblur="validate()" required="required" placeholder="长度>=6的英文数字"><br />
 
 			<label for="password">重复密码<font color='red'>*</font></label><br />
-			<input type="password" id="repassword" name="repassword" onkeyup="validate()" required="required"><br /><br />
+			<input type="password" id="repassword" name="repassword" onkeyup="validate()" required="required" placeholder="……"><br /><br />
 
 			<button type="button" id="submitbutton" class="ui icon button" onclick="submitfrom()">修改</button>
 		</form>

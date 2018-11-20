@@ -5,7 +5,7 @@ function timenow() {
   return moment().format('YYYY-MM-DD HH:mm:ss');
 }
 
-exports.create = function (title, content, author, showname,  callback) {
+exports.create = function (title, content, author, showname, callback) {
   let nowtime = timenow();
 
   let newpost = new mongoose.PostModel({
@@ -32,7 +32,9 @@ exports.getposts = function (name, callback) {
     return function (a, b) {
       var value1 = a[according];
       var value2 = b[according];
-      return value1 - value2;
+      if (value1 < value2) return -1
+      else if (value1 > value2) return 1
+      else return 0
     }
   }
 
@@ -44,4 +46,13 @@ exports.getposts = function (name, callback) {
       return callback(null, 0);    //用户不存在，返回0
     }
   });
+}
+
+exports.editpost = function (id, title, content, callback) {
+  let nowtime = timenow();
+  mongoose.PostModel.update({ id: id }, { title: title, content: content, updatetime: nowtime }, { multi: false })
+    .exec(function (err, data) {
+      if (err) return (err)
+      else return callback(null, 1);
+    })
 }
