@@ -9,10 +9,27 @@ body {
   border-radius: 5px 5px;
   box-shadow: 0 0 5px #eeeeee;
   padding: 10px 10px;
-  width: 280px;
   margin: 0 auto;
-  background-color: #ffffff
+  background-color: #ffffff;
+  width: 280px;
 }
+
+.autodiv2 {
+  overflow-y: auto;
+  overflow-x: auto;
+  width: 260px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.autodiv3 {
+  overflow-y: auto;
+  width: 260px;
+  height: 150px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
 
 a {
   color: rgb(72, 187, 5);

@@ -8,9 +8,17 @@
     </a>
 
     <br><br>
-    <p style="width:260px;word-break:break-all; word-wrap:break-word;">
+
+    <% if(posts[i].content.match(/\n/g)!==null && (posts[i].content.match(/\n/g).toString().length+1)/2+1>=10 ) {%>
+    <div class="autodiv3">
         <%- posts[i].content.replace(/\n/g, '<br/>') %>
-    </p>
+    </div>
+    <% } else {%>
+        <div class="autodiv2">
+            <%- posts[i].content.replace(/\n/g, '<br/>') %>
+        </div>
+    <% }%>
+    <br>
     <font size="2px" color=#888888>
         <%= posts[i].updatetime %>
     </font>
