@@ -9,15 +9,10 @@
 
     <br><br>
 
-    <% if(posts[i].content.match(/\n/g)!==null && (posts[i].content.match(/\n/g).toString().length+1)/2+1>=10 ) {%>
-    <div class="autodiv3">
+    <div class="autodiv2">
         <%- posts[i].content.replace(/\n/g, '<br/>') %>
     </div>
-    <% } else {%>
-        <div class="autodiv2">
-            <%- posts[i].content.replace(/\n/g, '<br/>') %>
-        </div>
-    <% }%>
+
     <br>
     <font size="2px" color=#888888>
         <%= posts[i].updatetime %>
@@ -34,7 +29,7 @@
         &nbsp
             <span class="ui inline dropdown" style="float:right">
                 <div class="arrow_down"></div>
-                <div class="menu">
+                <div class="menu" style="background-color:rgba(255, 255, 255, 0.7);">
                     <a class="item" href="/post/edit/<%= posts[i].id %>">编辑</a>
                     <a class="item" href="/post/remove/<%= posts[i].id %>">删除</a>
                 </div>

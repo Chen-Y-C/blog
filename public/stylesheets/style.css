@@ -2,7 +2,7 @@ body {
   padding: 50px;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
-  background:url(index.png) repeat 5px 5px
+  background: url(index.png) repeat 5px 5px
 }
 
 .autodiv {
@@ -11,27 +11,17 @@ body {
   box-shadow: 0 0 5px #eeeeee;
   padding: 10px 10px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.7);
   width: 280px;
-  opacity: 0.7
 }
 
 .autodiv2 {
   overflow-y: auto;
-  overflow-x: auto;
   width: 260px;
+  max-height: 255px;
   word-break: break-all;
   word-wrap: break-word;
 }
-
-.autodiv3 {
-  overflow-y: auto;
-  width: 260px;
-  height: 150px;
-  word-break: break-all;
-  word-wrap: break-word;
-}
-
 
 a {
   color: rgb(72, 187, 5);
